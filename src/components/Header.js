@@ -1,73 +1,43 @@
 import React from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import Panel from 'components/Panel'
+import UserProfile from 'components/UserProfile'
 
-const Header = (props) => (
-  <div className="header">
-    <div className="grid">
-      <div className="start">
-        <a href="/">Home</a>
-      </div>
-      <div className="end">
-        {props.nickname ? (
-          <span className="nickname">
-            <i className="far fa-user"></i>
-            {props.nickname}
-          </span>
-        ) : (
-          <React.Fragment>
-            <a href="/">Login</a>
-            <a href="/">Register</a>
-          </React.Fragment>
-        )}
+const Header = (props) => {
+  const showProfile = () => {
+    Panel.open({
+      component: UserProfile,
+      props: {
+        user: props.user,
+      },
+      callback: (data) => {
+        if (data === 'logout') {
+          props.history.go(0)
+        }
+      },
+    })
+  }
+  return (
+    <div className="header">
+      <div className="grid">
+        <div className="start">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="end">
+          {props.user.nickname ? (
+            <span className="nickname" onClick={showProfile}>
+              <i className="far fa-user"></i>
+              {props.user.nickname}
+            </span>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-)
-
-// class Header extends React.Component {
-//   // Customize function
-//   //   renderLink() {
-//   //     const nickname = this.props.nickname
-//   //     if (nickname) {
-//   //       return (
-//   //         <span className="nickname">
-//   //           <i className="far fa-user"></i>
-//   //           {this.props.nickname}
-//   //         </span>
-//   //       )
-//   //     } else {
-//   //       return (
-//   //         <React.Fragment>
-//   //           <a href="/">Login</a>
-//   //           <a href="/">Register</a>
-//   //         </React.Fragment>
-//   //       )
-//   //     }
-//   //   }
-
-//   render() {
-//     return (
-//       <div className="header">
-//         <div className="grid">
-//           <div className="start">
-//             <a href="/">Home</a>
-//           </div>
-//           <div className="end">
-//             {this.props.nickname ? (
-//               <span className="nickname">
-//                 <i className="far fa-user"></i>
-//                 {this.props.nickname}
-//               </span>
-//             ) : (
-//               <React.Fragment>
-//                 <a href="/">Login</a>
-//                 <a href="/">Register</a>
-//               </React.Fragment>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-
-export default Header
+  )
+}
+export default withRouter(Header)

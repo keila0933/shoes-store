@@ -383,11 +383,17 @@ body {
 // ---------- Inventory Component --------
 .inventory {
   padding: 1rem 2rem;
+  .label {
+    text-align: left;
+  }
 }
 
 // ----------- User Profile Components -------
 .user-profile {
   padding: 1rem 2rem;
+  .label {
+    text-align: left;
+  }
 }
 
 // --------- Login Page --------------
