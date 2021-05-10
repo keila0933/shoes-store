@@ -1,8 +1,3 @@
-/**
- * 1.一次渲染、隨時調用
- * 2.裝載組件
- */
-
 import React from 'react'
 import { render } from 'react-dom'
 

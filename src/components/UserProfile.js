@@ -8,58 +8,46 @@ export default function UserProfile(props) {
 
   return (
     <div className="user-profile">
-      <p className="title has-text-centered">Profile</p>
+      <p className="title">Profile</p>
       <fieldset disabled>
         <div className="field">
-          <div className="control">
-            <label className="label">Nickname</label>
-            <input
-              className="input"
-              type="text"
-              defaultValue={props.user.nickname}
-            />
-          </div>
+          <label className="label">Nickname</label>
+          <input
+            className="input"
+            type="text"
+            defaultValue={props.user.nickname}
+          />
         </div>
         <div className="field">
-          <div className="control">
-            <label className="label">Email</label>
-            <input
-              className="input"
-              type="text"
-              defaultValue={props.user.email}
-            />
-          </div>
+          <label className="label">Email</label>
+          <input
+            className="input"
+            type="text"
+            defaultValue={props.user.email}
+          />
         </div>
         <div className="field">
-          <div className="control">
-            <label className="label">Type</label>
-            <input
-              className="input"
-              type="text"
-              defaultValue={props.user.type === 1 ? 'Manager' : 'GeneralUser'}
-            />
-          </div>
+          <label className="label">Type</label>
+          <input
+            className="input"
+            type="text"
+            defaultValue={props.user.type === 1 ? 'Manager' : 'GeneralUser'}
+          />
         </div>
       </fieldset>
-      <br />
-      <br />
-      <div className="field is-grouped is-grouped-centered">
-        <div className="control">
-          <button className="button is-danger" onClick={logout}>
-            Logout
-          </button>
-        </div>
-        <div className="control">
-          <button
-            className="button"
-            type="button"
-            onClick={() => {
-              props.close()
-            }}
-          >
-            Cancel
-          </button>
-        </div>
+      <div className="btn-field">
+        <button className="button is-danger" onClick={logout}>
+          Logout
+        </button>
+        <button
+          className="button"
+          type="button"
+          onClick={() => {
+            props.close()
+          }}
+        >
+          Cancel
+        </button>
       </div>
     </div>
   )

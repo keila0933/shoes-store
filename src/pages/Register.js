@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'commons/axios'
 import { toast } from 'react-toastify'
+import Layout from 'Layout'
 
 export default function Login(props) {
   const { register, handleSubmit, errors } = useForm()
@@ -26,11 +27,15 @@ export default function Login(props) {
     }
   }
   return (
-    <div className="login-wrapper">
-      <form className="box login-box" onSubmit={handleSubmit(onSubmit)}>
-        <div className="field">
-          <label className="label">Nickname</label>
-          <div className="control">
+    <Layout>
+      <div className="login-wrapper">
+        <div className="login-box">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="login-tab">
+              <a href="#">Login</a>
+              <a>/</a>
+              <a href="#">Register</a>
+            </div>
             <input
               className={`input ${errors.nickname && 'is-danger'}`}
               type="text"
@@ -45,11 +50,6 @@ export default function Login(props) {
                 {errors.nickname.message}
               </p>
             )}
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
             <input
               className={`input ${errors.email && 'is-danger'}`}
               type="text"
@@ -66,11 +66,6 @@ export default function Login(props) {
             {errors.email && (
               <p className="helper has-text-danger">{errors.email.message}</p>
             )}
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Password</label>
-          <div className="control">
             <input
               className={`input ${errors.password && 'is-danger'}`}
               type="password"
@@ -89,12 +84,10 @@ export default function Login(props) {
                 {errors.password.message}
               </p>
             )}
-          </div>
+            <button className="button is-fullwidth is-primary">Submit</button>
+          </form>
         </div>
-        <div className="control">
-          <button className="button is-fullwidth is-primary">Submit</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </Layout>
   )
 }

@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 class ToolBox extends React.Component {
   state = {
     searchText: '',
+    active: false,
   }
 
   handleChange = (e) => {
@@ -27,27 +28,36 @@ class ToolBox extends React.Component {
     this.props.history.push('/cart')
   }
 
+  open = () => {
+    if (this.state.active === true) {
+      this.setState({ active: false })
+    } else {
+      this.setState({ active: true })
+    }
+  }
+
   render() {
+    const _class = {
+      true: 'search-box active',
+      false: 'search-box',
+    }
     return (
       <div className="tool-box">
         <div className="logo-text">Store</div>
-        <div className="search-box">
-          <div className="field has-addons">
-            <div className="control">
-              <input
-                type="text"
-                className="input search-input"
-                placeholder="Search Product"
-                value={this.state.searchText}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="control">
-              <button className="button" onClick={this.clearSearchText}>
-                X
-              </button>
-            </div>
-          </div>
+        <div className={_class[this.state.active]}>
+          <input
+            type="text"
+            className="input"
+            placeholder="Search Product"
+            value={this.state.searchText}
+            onChange={this.handleChange}
+          />
+          <button className="clear-btn" onClick={this.clearSearchText}>
+            X
+          </button>
+          <button className="open-btn" onClick={this.open}>
+            <i className="fas fa-search"></i>
+          </button>
         </div>
         <div to="/Cart" className="cart-box" onClick={this.goCart}>
           <i className="fas fa-shopping-cart"></i>

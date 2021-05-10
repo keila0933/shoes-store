@@ -29,28 +29,32 @@ const CartItem = (props) => {
   }
 
   return (
-    <div className="columns is-vcentered">
-      <div className="column is-narrow" onClick={deleteCart}>
+    <div className="cart-item">
+      <div className="delete-item" onClick={deleteCart}>
         <span className="close">X</span>
       </div>
-      <div className="column is-narrow">
+      <div className="item-img">
         <img src={image} alt={name} width="100" />
       </div>
-      <div className="column is-narrow cart-name">{name}</div>
-      <div className="column ">
-        <span className="price">{formatPrice(price)}</span>
-      </div>
-      <div className="column">
-        <input
-          type="number"
-          className="input num-input"
-          min={1}
-          value={mount}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="column">
-        <span className="sum-price">{sumPrice}</span>
+      <div className="cart-info">
+        <div className="cart-name">{name}</div>
+        <div className="price-num">
+          <div className="column">
+            <span className="price">{formatPrice(price)}</span>
+          </div>
+          <div className="item-num">
+            <input
+              type="number"
+              className="input num-input"
+              min={1}
+              value={mount}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="sum-price">
+            <span>{sumPrice}</span>
+          </div>
+        </div>
       </div>
     </div>
   )

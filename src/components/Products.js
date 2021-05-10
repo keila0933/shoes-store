@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'commons/axios'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import ToolBox from 'components/ToolBox'
 import Product from 'components/Product'
 import Panel from 'components/Panel'
@@ -101,31 +100,20 @@ class Products extends React.Component {
       <div>
         <ToolBox search={this.search} cartNum={this.state.cartNum} />
         <div className="products">
-          <div className="columns is-multiline is-desktop">
-            <TransitionGroup component={null}>
-              {this.state.products.map((p) => {
-                return (
-                  <CSSTransition
-                    classNames="product-fade"
-                    timeout={{ enter: 300, exit: 300 }}
-                    key={p.id}
-                  >
-                    <div className="column is-3" key={p.id}>
-                      <Product
-                        product={p}
-                        update={this.update}
-                        delete={this.delete}
-                        updateCartNum={this.updateCartNum}
-                      />
-                    </div>
-                  </CSSTransition>
-                )
-              })}
-            </TransitionGroup>
-          </div>
+          {this.state.products.map((p) => {
+            return (
+              <Product
+                product={p}
+                update={this.update}
+                delete={this.delete}
+                updateCartNum={this.updateCartNum}
+                key={p.id}
+              />
+            )
+          })}
           {(global.auth.getUser() || {}).type === 1 && (
-            <button className="button is-primary add-btn" onClick={this.toAdd}>
-              add
+            <button className="add-btn" onClick={this.toAdd}>
+              addItem
             </button>
           )}
         </div>

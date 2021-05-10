@@ -62,7 +62,7 @@ class EditInventory extends React.Component {
             <div className="control">
               <label className="label">Name</label>
               <textarea
-                className="textarea"
+                className="textarea is-small"
                 name="name"
                 value={this.state.name}
                 onChange={this.handleChange}
@@ -74,7 +74,7 @@ class EditInventory extends React.Component {
               <label className="label">price</label>
               <input
                 type="number"
-                className="input"
+                className="input is-small"
                 name="price"
                 value={this.state.price}
                 onChange={this.handleChange}
@@ -86,7 +86,7 @@ class EditInventory extends React.Component {
               <label className="label">Tags</label>
               <input
                 type="text"
-                className="input"
+                className="input is-small"
                 name="tags"
                 value={this.state.tags}
                 onChange={this.handleChange}
@@ -98,7 +98,7 @@ class EditInventory extends React.Component {
               <label className="label">Image</label>
               <input
                 type="text"
-                className="input"
+                className="input is-small"
                 name="image"
                 value={this.state.image}
                 onChange={this.handleChange}
@@ -120,29 +120,22 @@ class EditInventory extends React.Component {
               </div>
             </div>
           </div>
-          <br />
-          <div className="field is-grouped is-grouped-centered">
-            <div className="control">
-              <button className="button is-link">Submit</button>
-            </div>
-            <div className="control">
-              <button
-                className="button is-danger"
-                type="button"
-                onClick={this.onDelete}
-              >
-                Delete
-              </button>
-            </div>
-            <div className="control">
-              <button
-                className="button"
-                type="button"
-                onClick={() => this.props.close()}
-              >
-                Cancel
-              </button>
-            </div>
+          <div className="btn-field edit">
+            <button className="button">Submit</button>
+            <button
+              className="button is-danger"
+              type="button"
+              onClick={this.onDelete}
+            >
+              Delete
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => this.props.close()}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

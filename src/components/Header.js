@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Panel from 'components/Panel'
 import UserProfile from 'components/UserProfile'
 
 const Header = (props) => {
+  const [visible, setVisible] = useState('menu')
+
   const showProfile = () => {
     Panel.open({
       component: UserProfile,
@@ -17,9 +19,26 @@ const Header = (props) => {
       },
     })
   }
+
+  const showMenu = () => {
+    setVisible('menu visible')
+  }
+
+  const closeMenu = () => {
+    setVisible('menu')
+  }
+
   return (
     <div className="header">
       <div className="grid">
+        <button
+          className="menu-btn"
+          onClick={showMenu}
+          onMouseOver={showMenu}
+          onMouseOut={closeMenu}
+        >
+          <i className="fas fa-bars"></i>
+        </button>
         <div className="start">
           <Link to="/">Home</Link>
         </div>
@@ -37,6 +56,13 @@ const Header = (props) => {
           )}
         </div>
       </div>
+      <ul className={visible} onMouseOver={showMenu} onMouseOut={closeMenu}>
+        <li>NEW ARRIVALS</li>
+        <li>All</li>
+        <li>AIR JORDAN</li>
+        <li>NIKE</li>
+        <li>ADIDAS</li>
+      </ul>
     </div>
   )
 }

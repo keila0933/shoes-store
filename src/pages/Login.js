@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'commons/axios'
 import { toast } from 'react-toastify'
+import Layout from 'Layout'
 
 export default function Login(props) {
   const { register, handleSubmit, errors } = useForm()
@@ -22,11 +23,18 @@ export default function Login(props) {
   }
 
   return (
-    <div className="login-wrapper">
-      <form className="box login-box" onSubmit={handleSubmit(onSubmit)}>
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
+    <Layout>
+      <div className="login-wrapper">
+        {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+        <div className="login-box">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="login-tab">
+              <a href="#">Login</a>
+              <a>/</a>
+              <a href="#">Register</a>
+            </div>
+            {/* register your input into the hook by invoking the "register" function */}
+            {/* include required & validation rules */}
             <input
               className={`input ${errors.email && 'is-danger'}`}
               type="text"
@@ -41,13 +49,8 @@ export default function Login(props) {
               })}
             />
             {errors.email && (
-              <p className="helper has-text-danger">{errors.email.message}</p>
+              <p className="has-text-danger">{errors.email.message}</p>
             )}
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Password</label>
-          <div className="control">
             <input
               className={`input ${errors.password && 'is-danger'}`}
               type="password"
@@ -62,16 +65,12 @@ export default function Login(props) {
               })}
             />
             {errors.password && (
-              <p className="helper has-text-danger">
-                {errors.password.message}
-              </p>
+              <p className="has-text-danger">{errors.password.message}</p>
             )}
-          </div>
+            <button className="button">Login</button>
+          </form>
         </div>
-        <div className="control">
-          <button className="button is-fullwidth is-primary">Login</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </Layout>
   )
 }
