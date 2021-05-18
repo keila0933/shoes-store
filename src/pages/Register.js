@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'commons/axios'
 import { toast } from 'react-toastify'
 import Layout from 'Layout'
+import { Link } from 'react-router-dom'
 
 export default function Login(props) {
   const { register, handleSubmit, errors } = useForm()
@@ -32,9 +33,8 @@ export default function Login(props) {
         <div className="login-box">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="login-tab">
-              <a href="#">Login</a>
-              <a>/</a>
-              <a href="#">Register</a>
+              <Link to="/login">Login</Link>/
+              <Link to="/register">Register</Link>
             </div>
             <input
               className={`input ${errors.nickname && 'is-danger'}`}
@@ -58,7 +58,8 @@ export default function Login(props) {
               ref={register({
                 required: 'email is required',
                 pattern: {
-                  value: /^[A-Za-z0-9]+([_\\.][A-Za-z0-9]+)*@([A-Za-z0-9\\-]+\.)+[A-Za-z]{2,6}$/,
+                  value:
+                    /^[A-Za-z0-9]+([_\\.][A-Za-z0-9]+)*@([A-Za-z0-9\\-]+\.)+[A-Za-z]{2,6}$/,
                   message: 'invalid email',
                 },
               })}

@@ -1,9 +1,11 @@
 import React from 'react'
 import axios from 'commons/axios'
-import ToolBox from 'components/ToolBox'
 import Product from 'components/Product'
 import Panel from 'components/Panel'
 import AddInventory from 'components/AddInventory'
+import ScrollButton from 'components/ScrollButton'
+import SearchBox from 'components/SearchBox'
+import CartBox from 'components/CartBox'
 
 class Products extends React.Component {
   state = {
@@ -98,7 +100,11 @@ class Products extends React.Component {
   render() {
     return (
       <div>
-        <ToolBox search={this.search} cartNum={this.state.cartNum} />
+        <div className="tool-box">
+          <div className="logo-text">Store</div>
+          <SearchBox search={this.search} />
+          <CartBox cartNum={this.state.cartNum} />
+        </div>
         <div className="products">
           {this.state.products.map((p) => {
             return (
@@ -117,9 +123,9 @@ class Products extends React.Component {
             </button>
           )}
         </div>
+        <ScrollButton />
       </div>
     )
   }
 }
-
 export default Products

@@ -31,16 +31,19 @@ const Header = (props) => {
   return (
     <div className="header">
       <div className="grid">
-        <button
-          className="menu-btn"
-          onClick={showMenu}
-          onMouseOver={showMenu}
-          onMouseOut={closeMenu}
-        >
-          <i className="fas fa-bars"></i>
-        </button>
         <div className="start">
-          <Link to="/">Home</Link>
+          <button
+            className="menu-btn"
+            onClick={showMenu}
+            onMouseOver={showMenu}
+            onMouseOut={closeMenu}
+          >
+            <i className="fas fa-bars"></i>
+          </button>
+          <Link to="/">
+            <i className="fas fa-home icon"></i>
+            <p className="topic">Fcy-shoes</p>
+          </Link>
         </div>
         <div className="end">
           {props.user.nickname ? (
@@ -50,8 +53,10 @@ const Header = (props) => {
             </span>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
+              <Link to="/login">
+                <i className="fas fa-user-circle icon"></i>
+                Sign in
+              </Link>
             </>
           )}
         </div>
