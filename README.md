@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# FCY-SHOES-STORE 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Online store (RWD webpage) build by `create-react-app`, you can add product into cart or CRUD product on the site.
 
-## Available Scripts
+- [My Website](https://fcy-shoes-store.herokuapp.com/)
 
-In the project directory, you can run:
+### Account 
 
-### `npm start`
+- Normal user account
+```
+ Email:testuser@test.com
+ password:123456
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Admin account
+```
+ Email: admin@test.com
+ password: admin111
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project purpose
+Let me get familiar with React JS library, learn by doing it.
 
-### `npm test`
+## Technologies and packages used in this project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**React**
 
-### `npm run build`
+- hook
+- [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)<br>
+  DOM bindings for React Router.
+- [react-toastify](https://github.com/fkhadra/react-toastify)<br>
+  Allows you to add notifications to your app with ease.
+  
+**API**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [axios](https://github.com/axios/axios)<br>
+  Promise based HTTP client for the browser and node.js.
+- [json-server](https://github.com/typicode/json-server)<br>
+  Fake REST API , a quick back-end for prototyping and mocking. <br>
+  you can visit my json server [here](https://fcy-shoes-api.herokuapp.com/).
+  
+**Project Deployment**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Heroku](https://www.heroku.com)<br>
+  Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+  
+**User Authentication**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)<br>
+A self-contained way for securely transmitting information between parties as a JSON object<br>
+if you want to see how i use it in my website, you can visit [here](https://github.com/keila0933/shoes-store-api).
 
-### `npm run eject`
+## Project structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
