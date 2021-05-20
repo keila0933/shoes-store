@@ -53,5 +53,38 @@ if you want to see how i use it in my website, you can visit [here](https://gith
 ## Project structure
 
 ```
-
+src
+├── commons
+│   ├──auth.js
+│   ├── axios.js
+│   └── helper.js
+├── components
+│   └── App
+│       ├── components
+│       │   └──Products.js
+│       │       ├── Header.js
+│       │       ├── Panel.js
+│       │       │    ├── AddInventory.js
+│       │       │    ├── EditInventory.js
+│       │       │    └── UserProfile.js
+│       │       ├── ToolBox.js
+│       │       │    ├── SearchBox.js
+│       │       │    └── CartBox.js
+│       │       └──  Product.js   
+│       ├── CartItem.js   
+│       └── ScrollButton.js
+├── css  
+│   ├──app.scss
+│   └──style.scss
+├── pages
+│   ├──App.js
+│   ├──Cart.js
+│   ├──Login.js
+│   ├──Register.js
+│   └──NotFound.js
+├── index.js
+├── Layout.js
+├── Router.js
+├── .gitignore
+└──README.md
 ```
